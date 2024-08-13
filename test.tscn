@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm4bbtwws8kyb"]
+
+[ext_resource type="Shader" uid="uid://dt01obwqhcpb" path="res://glow_shader.tres" id="1_mmrrn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_onphi"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_odu7f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjtr1"]
+render_priority = 0
+shader = ExtResource("1_mmrrn")
+shader_parameter/albedo = Color(0.493545, 0.493546, 0.493546, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_xgux6"]
+material = SubResource("ShaderMaterial_gjtr1")
+size = Vector2(0.2, 0.2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83962, 0, 0)
+mesh = SubResource("BoxMesh_onphi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18563, 0, 1.92345)
+mesh = SubResource("BoxMesh_onphi")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 12.58, -4.81437, 0, -1.07655)
+mesh = SubResource("BoxMesh_onphi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.887006, 2.12355, -1.79758)
+mesh = SubResource("CapsuleMesh_odu7f")
+
+[node name="glow" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_xgux6")
