@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cm4bbtwws8kyb"]
 
-[ext_resource type="Shader" uid="uid://dt01obwqhcpb" path="res://glow_shader.tres" id="1_mmrrn"]
+[ext_resource type="Shader" uid="uid://dt01obwqhcpb" path="res://flare_shader.tres" id="1_mmrrn"]
 [ext_resource type="Texture2D" uid="uid://yaeyhc0r5axe" path="res://flare.png" id="2_tml05"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_onphi"]
@@ -35,10 +35,10 @@ mesh = SubResource("BoxMesh_onphi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.887006, 2.12355, -1.79758)
 mesh = SubResource("CapsuleMesh_odu7f")
 
-[node name="glow" type="MeshInstance3D" parent="."]
+[node name="flare" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.809389, 0.651812, 0)
 mesh = SubResource("QuadMesh_xgux6")
 
-[node name="glow2" type="MeshInstance3D" parent="."]
+[node name="flare2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 1.5)
 mesh = SubResource("QuadMesh_xgux6")
