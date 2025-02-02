@@ -1,21 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm4bbtwws8kyb"]
+[gd_scene load_steps=13 format=3 uid="uid://cm4bbtwws8kyb"]
 
 [ext_resource type="Shader" uid="uid://dt01obwqhcpb" path="res://flare_shader.tres" id="1_mmrrn"]
 [ext_resource type="Texture2D" uid="uid://yaeyhc0r5axe" path="res://flare.png" id="2_tml05"]
+[ext_resource type="Shader" uid="uid://dmv3sb86wktm5" path="res://flare_scaled_shader.tres" id="3_4kv37"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_onphi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_odu7f"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjtr1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82rj8"]
 render_priority = 0
 shader = ExtResource("1_mmrrn")
 shader_parameter/albedo_tint = Color(1, 1, 1, 1)
 shader_parameter/albedo_texture = ExtResource("2_tml05")
 
 [sub_resource type="QuadMesh" id="QuadMesh_xgux6"]
-material = SubResource("ShaderMaterial_gjtr1")
+material = SubResource("ShaderMaterial_82rj8")
 size = Vector2(0.3, 0.3)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8key7"]
+load_path = "res://.godot/imported/flare.png-c4a1322e5f74dde73bf3de5863cf4bd2.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbc51"]
+render_priority = 0
+shader = ExtResource("1_mmrrn")
+shader_parameter/albedo_tint = Color(0.270588, 1, 0, 1)
+shader_parameter/albedo_texture = SubResource("CompressedTexture2D_8key7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kuyy8"]
+material = SubResource("ShaderMaterial_hbc51")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55sdb"]
+render_priority = 0
+shader = ExtResource("3_4kv37")
+shader_parameter/albedo_tint = Color(0.345098, 0.831373, 1, 1)
+shader_parameter/fade_start = 3.0
+shader_parameter/fade_end = 8.0
+shader_parameter/albedo_texture = ExtResource("2_tml05")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mlqfi"]
+material = SubResource("ShaderMaterial_55sdb")
 
 [node name="Node3D" type="Node3D"]
 
@@ -41,4 +66,8 @@ mesh = SubResource("QuadMesh_xgux6")
 
 [node name="flare2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 1.5)
-mesh = SubResource("QuadMesh_xgux6")
+mesh = SubResource("QuadMesh_kuyy8")
+
+[node name="distance_flare" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76086, -0.000591278, 1.93617)
+mesh = SubResource("QuadMesh_mlqfi")
